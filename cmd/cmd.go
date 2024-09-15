@@ -1,9 +1,12 @@
 package cmd
 
-import "log"
+import (
+	"log"
+	"reservation/internal/router"
+)
 
 func RunServer() {
-	ginSever := router.New()
+	ginSever := router.Ping()
 	err := ginSever.Run(":8080")
 	if err != nil {
 		log.Fatalln(err)
