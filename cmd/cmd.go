@@ -9,7 +9,7 @@ import (
 func RunServer() {
 	database.MysqlConnect()
 	ginSever := router.Ping()
-	ginSever = router.GetUserInfo()
+	ginSever = router.UserHandler()
 	err := ginSever.Run(":8080")
 	if err != nil {
 		log.Fatalln(err)

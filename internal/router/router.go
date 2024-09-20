@@ -11,8 +11,12 @@ func Ping() *gin.Engine {
 	return ginSever
 }
 
-func GetUserInfo() *gin.Engine {
+func UserHandler() *gin.Engine {
 	ginSever := gin.Default()
-	ginSever.POST("/userInfo", controller.GetUserInfo)
+	r := ginSever.Group("/user")
+	r.GET("/getUser", controller.GetUser)
+	r.GET("/createUser", controller.CreateUser)
+	r.GET("/getUserById", controller.GetUserListById)
+	r.GET("/getUserByName", controller.GetUserListByName)
 	return ginSever
 }
